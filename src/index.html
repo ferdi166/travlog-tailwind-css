@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz@0,14..32;1,14..32&display=swap"
+        rel="stylesheet">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="../src/output.css">
+    <!-- Alpine JS -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation Start -->
+    <nav class="py-7 px-4 fixed top-0 left-0 w-full z-[9999] bg-white" x-data="{navOpen : false}">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <img src="../public/assets/logo.svg" alt="" class="order-1 sm:order-2">
+                <img @click="navOpen = !navOpen" src="../public/assets/toggle.svg" alt=""
+                    class="order-2 sm:order-1 lg:hidden">
+                <div class="order-2 hidden lg:block">
+                    <ul class="flex gap-16">
+                        <li class="text-gray font-bold text-sm font-Circular"><a href="#home">Home</a></li>
+                        <li class="text-gray font-bold text-sm font-Circular opacity-50"><a href="#home">Discover</a>
+                        </li>
+                        <li class="text-gray font-bold text-sm font-Circular opacity-50"><a href="#home">Special
+                                Deal</a>
+                        </li>
+                        <li class="text-gray font-bold text-sm font-Circular opacity-50"><a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-3 hidden sm:block">
+                    <button
+                        class="grow bg-white px-8 py-4 font-bold text-gray rounded-full text-sm border border-slate-300">Login</button>
+                    <button class="grow bg-ungu px-8 py-4 font-bold text-white rounded-full text-sm">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div x-show="navOpen" x-data="{open : false}"
+            class="bottom-0 right-0 left-0 bg-white p-4 border-t border-slate-300 lg:hidden z-50"
+            x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
+            x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+            <ul class="flex justify-between">
+                <li>
+                    <button class="flex justify-center flex-col items-center gap-1">
+                        <ion-icon name="home-outline" class="text-2xl text-ungu"></ion-icon>
+                        <span class="text-ungu text-base font-bold">Home</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="flex justify-center flex-col items-center gap-1 text-gray opacity-50">
+                        <ion-icon name="albums-outline" class="text-2xl"></ion-icon>
+                        <span class=" text-base font-normal">Discover</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="flex justify-center flex-col items-center gap-1 text-gray opacity-50">
+                        <ion-icon name="sparkles-outline" class="text-2xl"></ion-icon>
+                        <span class=" text-base font-normal">Special Deals</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="flex justify-center flex-col items-center gap-1 text-gray opacity-50">
+                        <ion-icon name="person-circle-outline" class="text-2xl"></ion-icon>
+                        <span class=" text-base font-normal">Contacts</span>
+                    </button>
+                </li>
+                <li>
+                    <button @click="open = !open"
+                        class="flex justify-center flex-col items-center gap-1 text-gray opacity-50">
+                        <ion-icon name="reorder-three-outline" class="text-2xl"></ion-icon>
+                        <span class="text-base font-normal">More</span>
+                    </button>
+                </li>
+            </ul>
+
+            <div x-show="open" class="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-4 w-3/4" x-show="open"
+                x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
+                x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+                <button class="grow bg-white px-8 py-4 font-bold text-gray rounded-full text-sm">Login</button>
+                <button class="grow bg-ungu px-8 py-4 font-bold text-white rounded-full text-sm">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation End -->
+
+    <!-- Hero Section Start -->
+    <section>
+        <div class="container mx-auto px-4 py-4 lg:py-16" id="home">
+            <div class="grid grid-cols-12 items-center mt-32">
+                <div class="col-span-12 lg:col-span-4 order-2 lg:order-1">
+                    <div>
+                        <button
+                            class="px-8 py-4 bg-white text-pink flex gap-2 text-sm font-bold drop-shadow-sm-shadow rounded-full mx-auto lg:mx-0">Explore
+                            the world!
+                            <img src="../public/assets/icon/work.svg" alt="">
+                        </button>
+                        <h1
+                            class="mt-4 mb-6 md:mb-[43px] md:mt-[43px] font-bold text-gray text-[40px] md:text-[56px] lg:text-[69px] leading-tight text-center lg:text-start">
+                            Travel <span class="text-pink">top destination</span> of the world
+                        </h1>
+                        <p
+                            class="mb-8 md:mb-[43px] text-center lg:text-start text-gray opacity-50 text-base md:text-[18px] font-inter md:w-3/4 lg:w-full md:mx-auto">
+                            We
+                            always
+                            make our
+                            customer
+                            happy by
+                            providing
+                            as many choices as possible </p>
+                        <div class="flex flex-col md:flex-row justify-center gap-6 lg:justify-start">
+                            <button
+                                class="py-6 px-8 bg-ungu drop-shadow-lg-shadow text-white rounded-full text-sm font-bold">Get
+                                Started</button>
+                            <button
+                                class="z-10 flex justify-center items-center gap-2 py-6 px-8 bg-white border border-[#eee] rounded-full text-sm font-bold">
+                                <img src="../public/assets/icon/play.svg" alt="">
+                                Watch Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 lg:col-span-8 order-1 lg:order-2 text-center">
+                    <div>
+                        <img src="../public/assets/hero.png" class="w-full" alt="">
+                    </div>
+                </div>
+                <div class="col-span-12 order-3 py-8">
+                    <div class="flex justify-center gap-7 lg:justify-between flex-wrap">
+                        <div><img src="../public/assets/logo/airbnb.svg" class="h-5 sm:h-8" alt=""></div>
+                        <div><img src="../public/assets/logo/booking.svg" class="h-5 sm:h-8" alt=""></div>
+                        <div><img src="../public/assets/logo/Expedia.svg" class="h-5 sm:h-8" alt=""></div>
+                        <div><img src="../public/assets/logo/orbitz.svg" class="h-5 sm:h-8" alt=""></div>
+                        <div><img src="../public/assets/logo/tripadvisor.svg" class="h-5 sm:h-8" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Service Section Start -->
+    <section class="py-16 overflow-hidden">
+        <div class="container mx-auto px-3">
+            <div class="grid grid-cols-12 items-center">
+                <div class="lg:col-span-4 col-span-12 flex gap-4 flex-col">
+                    <span
+                        class="text-pink font-bold leading-tight text-center lg:text-start text-base sm:text-2xl">SERVICE</span>
+                    <h1 class="font-bold sm:text-5xl text-3xl text-gray text-center lg:text-start">Our top value
+                        categories for
+                        you
+                    </h1>
+                </div>
+                <div
+                    class="lg:col-span-8 col-span-12 flex flex-col sm:flex-row gap-5 lg:w-screen sm:w-auto lg:mt-0 sm:mt-16 mt-8">
+                    <div
+                        class="flex justify-center gap-16 flex-col items-center w-full sm:w-[350px] rounded-[32px] border border-slate-300 lg:p-16 p-10 bg-white">
+                        <div><img src="../public/assets/icon/destination.png" alt=""></div>
+                        <div class="flex gap-8 flex-col">
+                            <h2 class="font-bold text-gray text-lg text-center">Best Tour Guide</h2>
+                            <p class="font-inter text-lg leading-relaxed text-gray opacity-50 text-center">What looked
+                                like a small
+                                patch of
+                                purple
+                                grass, above five
+                                feet.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-center gap-16 bg-white flex-col items-center sm:w-[350px] rounded-[32px] lg:p-16 p-10 shadow-xl">
+                        <div><img src="../public/assets/icon/booking.png" alt=""></div>
+                        <div class="flex gap-8 flex-col">
+                            <h2 class="font-bold text-gray text-lg text-center">Easy Booking</h2>
+                            <p class="font-inter text-lg leading-relaxed text-gray opacity-50 text-center">Square, was
+                                moving across the sand in their direction.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-center gap-16 bg-white flex-col items-center sm:w-[350px] rounded-[32px] border border-slate-300 lg:p-16 p-10">
+                        <div><img src="../public/assets/icon/cloudy.png" alt=""></div>
+                        <div class="flex gap-8 flex-col">
+                            <h2 class="font-bold text-gray text-lg text-center">Weather Forecast</h2>
+                            <p class="font-inter text-lg leading-relaxed text-gray opacity-50 text-center">What looked
+                                like a small patch of purple grass, above five feet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Service Section End -->
+
+    <!-- Top Destination Section Start -->
+    <section>
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid grid-cols-12 items-center lg:flex lg:flex-row lg:justify-between py-10">
+                <div class="col-span-12 flex gap-4 flex-col lg:col-span-3">
+                    <span class="text-pink font-bold text-base text-center leading-tight sm:text-2xl lg:text-start">Top
+                        Destination</span>
+                    <h1 class="text-gray font-bold text-3xl text-center sm:text-5xl">Explore top destination</h1>
+                </div>
+                <div class="col-span-12 pt-5 flex flex-row justify-between sm:justify-center sm:gap-5 lg:col-span-9">
+                    <div
+                        class="w-16 h-16 bg-white border border-slate-400 rounded-full flex items-center justify-center">
+                        <img src="../public/assets/icon/arrow-left.svg" alt="">
+                    </div>
+                    <div
+                        class="w-16 h-16 bg-ungu border border-slate-400 rounded-full flex items-center justify-center shadow-xl">
+                        <img src="../public/assets/icon/arrow-right.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 sm:flex sm:flex-row gap-5 justify-center">
+                <div class="bg-white shadow-xl pb-10 rounded-xl mb-10 col-span-12 lg:col-span-4">
+                    <img src="../public/assets/destination/1.png" alt="" class="w-full sm:h-[300px] sm:overflow-hidden">
+                    <div>
+                        <div class="p-8">
+                            <div class="leading-10">
+                                <span class="text-pink text-2xl font-bold">$550.16</span>
+                                <p class="text-gray text-2xl font-extrabold">Paradise Beach, Bantayan</p>
+                                <p class="text-gray text-2xl font-extrabold">Island</p>
+                            </div>
+                            <p class="text-xl text-gray leading-[50px]">Rome, Italy</p>
+                        </div>
+                        <img src="../public/assets/rating/4.8.svg" alt="" class="px-8">
+                    </div>
+                </div>
+                <div class="bg-white shadow-xl pb-10 rounded-xl mb-10 col-span-12 lg:col-span-4">
+                    <img src="../public/assets/destination/2.png" alt="" class="w-full sm:h-[300px] sm:overflow-hidden">
+                    <div>
+                        <div class="p-8">
+                            <div class="leading-10">
+                                <span class="text-pink text-2xl font-bold">$20.99</span>
+                                <p class="text-gray text-2xl font-extrabold">Ocean with full of</p>
+                                <p class="text-gray text-2xl font-extrabold">Colors</p>
+                            </div>
+                            <p class="text-xl text-gray leading-[50px]">Maldives</p>
+                        </div>
+                        <img src="../public/assets/rating/4.8.svg" alt="" class="px-8">
+                    </div>
+                </div>
+                <div class="bg-white shadow-xl pb-10 rounded-xl mb-10 col-span-12 lg:col-span-4">
+                    <img src="../public/assets/destination/3.png" alt="" class="w-full sm:h-[300px] sm:overflow-hidden">
+                    <div>
+                        <div class="p-8">
+                            <div class="leading-10">
+                                <span class="text-pink text-2xl font-bold">$150.99</span>
+                                <p class="text-gray text-2xl font-extrabold">Mountain View, Above the</p>
+                                <p class="text-gray text-2xl font-extrabold">cloud</p>
+                            </div>
+                            <p class="text-xl text-gray leading-[50px]">United Arab Emeries</p>
+                        </div>
+                        <img src="../public/assets/rating/4.8.svg" alt="" class="px-8">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Top Destination Section End-->
+
+    <!-- Travel Point Section Start -->
+    <section>
+        <div class="container sm:mx-auto sm:px-4 lg:mx-0 lg:px-0">
+            <div class="grid grid-cols-12 items-center">
+                <div class="col-span-12 lg:col-span-7">
+                    <img src="../public/assets/discount.png" class="w-full" alt="">
+                </div>
+                <div class="col-span-12 lg:col-span-5 grid justify-items-center lg:justify-items-start">
+                    <div class="mt-8 grid gap-4 lg:mb-10">
+                        <span
+                            class="text-pink text-base sm:text-2xl font-bold flex justify-center lg:justify-start">Travel
+                            Point</span>
+                        <h1 class="text-gray text-3xl sm:text-5xl font-bold text-center lg:text-start">We helping you
+                            find your
+                            dream
+                            location</h1>
+                        <p class="text-gray font-inter text-base opacity-50 text-center lg:text-start">Contrary to
+                            popular belief,
+                            Lorem Ipsum is
+                            not simply
+                            random
+                            text. It has
+                            roots in a piece of
+                            classical Latin literature from 45 BC.</p>
+                    </div>
+
+                    <div class="py-5 sm:flex sm:gap-8">
+                        <div class="col-span-12 sm:col-span-4">
+                            <div
+                                class="w-[355px] lg:w-[230px] h-[150px] rounded-xl flex flex-col items-center justify-center border border-slate-300 mb-5">
+                                <span class="text-orange text-4xl font-bold mb-3">500+</span>
+                                <p class="text-gray font-inter text-xl">Holiday Package</p>
+                            </div>
+                            <div
+                                class="w-[355px] lg:w-[230px] h-[150px] rounded-xl flex flex-col items-center justify-center border border-slate-300 mb-5">
+                                <span class="text-orange text-4xl font-bold mb-3">100</span>
+                                <p class="text-gray font-inter text-xl">Luxury Hotel</p>
+                            </div>
+                        </div>
+
+                        <div class="col-span-12 sm:col-span-4">
+                            <div
+                                class="w-[355px] lg:w-[230px] h-[150px] rounded-xl flex flex-col items-center justify-center border border-slate-300 mb-5">
+                                <span class="text-orange text-4xl font-bold mb-3">7</span>
+                                <p class="text-gray font-inter text-xl">Premium Airlines</p>
+                            </div>
+                            <div
+                                class="w-[355px] lg:w-[230px] h-[150px] rounded-xl flex flex-col items-center justify-center border border-slate-300">
+                                <span class="text-orange text-4xl font-bold mb-3">2k+</span>
+                                <p class="text-gray font-inter text-xl">Happy Customer</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Travel Point Section End -->
+
+    <!-- Key Features Section Start -->
+    <section>
+        <div class="container mx-auto px-4 py-32">
+            <div class="grid grid-cols-12 lg:gap-[120px] lg:overflow-hidden">
+                <div class="col-span-12 grid justify-items-center lg:col-span-7 lg:order-2 lg:place-items-center">
+                    <div>
+                        <img src="../public/assets/features.png" alt="">
+                    </div>
+                </div>
+                <div class="col-span-12 grid justify-items-center lg:justify-items-start lg:col-span-5 lg:order-1">
+                    <div class="mt-8">
+                        <div class="flex flex-col text-center lg:text-start gap-4">
+                            <span class="text-pink text-base sm:text-2xl font-bold">Key
+                                features</span>
+                            <h1 class="text-gray text-3xl sm:text-5xl font-bold">We offer best services</h1>
+                            <p class="text-gray font-inter text-base opacity-50 text-center lg:text-start mt-3">Contrary
+                                to
+                                popular
+                                belief,
+                                Lorem Ipsum is not simply random text. It has
+                                roots in a piece of
+                                classical Latin literature from 45 BC.</p>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <div
+                            class="w-[334px] h-[280px] sm:w-[700px] sm:h-[170px] lg:w-[549px] sm:flex sm:flex-row sm:gap-8 sm:items-center px-8 py-8 rounded-[32px] border border-slate-300 mb-6">
+                            <div
+                                class="bg-orange w-[100px] h-[100px] flex items-center justify-center rounded-[32px] mb-6 sm:mb-0">
+                                <img src="../public/assets/icon/Vector.svg" alt="">
+                            </div>
+                            <div>
+                                <h2 class="text-gray font-bold text-xl text-start leading-9">We offer best services
+                                </h2>
+                                <p class="text-gray font-inter text-base opacity-50 text-start">Lorem Ipsum is not
+                                    simply random text</p>
+                            </div>
+                        </div>
+                        <div
+                            class="w-[334px] h-[280px] sm:w-[700px] sm:h-[170px] lg:w-[549px] sm:flex sm:flex-row sm:gap-8 sm:items-center px-8 py-8 rounded-[32px] border border-slate-300 mb-6">
+                            <div
+                                class="bg-yellow w-[100px] h-[100px] flex items-center justify-center rounded-[32px] mb-6 sm:mb-0">
+                                <img src="../public/assets/icon/Vector-1.svg" alt="">
+                            </div>
+                            <div>
+                                <h2 class="text-gray font-bold text-xl text-start leading-9">We offer best services
+                                </h2>
+                                <p class="text-gray font-inter text-base opacity-50 text-start">Lorem Ipsum is not
+                                    simply random text</p>
+                            </div>
+                        </div>
+                        <div
+                            class="w-[334px] h-[280px] sm:w-[700px] sm:h-[170px] lg:w-[549px] sm:flex sm:flex-row sm:gap-8 sm:items-center px-8 py-8 rounded-[32px] border border-slate-300 mb-6">
+                            <div
+                                class="bg-pink w-[100px] h-[100px] flex items-center justify-center rounded-[32px] mb-6 sm:mb-0">
+                                <img src="../public/assets/icon/Vector-2.svg" alt="">
+                            </div>
+                            <div>
+                                <h2 class="text-gray font-bold text-xl text-start leading-9">We offer best services
+                                </h2>
+                                <p class="text-gray font-inter text-base opacity-50 text-start">Lorem Ipsum is not
+                                    simply random text</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Key Features Section End -->
+
+    <!-- Tesmonials Section Start -->
+    <section>
+        <div class="container mx-auto px-4 py-32">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12 grid gap-12 justify-items-center relative">
+                    <div class="grid justify-items-center">
+                        <span class="text-pink text-base sm:text-2xl font-bold">Testimonials</span>
+                        <h1 class="text-gray text-3xl sm:text-5xl font-bold">Trust our clients</h1>
+                    </div>
+                    <div class="grid justify-items-center">
+                        <img src="../public/assets/testimonials.png" alt="">
+                    </div>
+                    <div class="grid justify-items-center gap-4">
+                        <h2 class="font-bold text-xl"><span class="text-orange">Mark Smith</span> / Travel Enthusiast
+                        </h2>
+                        <div class="flex items-center  mb-2">
+                            <svg class="w-6 h-6 ms-2 text-yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 22 20">
+                                <path
+                                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                            <svg class="w-6 h-6 ms-2 text-yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 22 20">
+                                <path
+                                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                            <svg class="w-6 h-6 ms-2 text-yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 22 20">
+                                <path
+                                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                            <svg class="w-6 h-6 ms-2 text-yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 22 20">
+                                <path
+                                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                            <svg class="w-6 h-6 ms-2 text-gray-300 dark:text-gray-500" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path
+                                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="sm:w-3/5">
+                        <p class="text-gray font-inter text-base text-center">Contrary to popular belief, Lorem Ipsum is
+                            not simply
+                            random text. It has roots in a piece of
+                            classical Latin literature from 45 BC.</p>
+                    </div>
+                    <div class="flex w-full justify-between sm:absolute sm:top-[250px]">
+                        <div
+                            class="w-16 h-16 bg-white border border-slate-400 rounded-full flex items-center justify-center">
+                            <img src="../public/assets/icon/arrow-left.svg" alt="">
+                        </div>
+                        <div
+                            class="w-16 h-16 bg-ungu border border-slate-400 rounded-full flex items-center justify-center shadow-xl">
+                            <img src="../public/assets/icon/arrow-right.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Tesmonials Section End -->
+
+    <!-- Send Email Start -->
+    <section>
+        <div class="container mx-auto px-4 py-32" id="contact">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12 mb-16">
+                    <div class="grid justify-items-center gap-8 ">
+                        <span class="text-pink text-base sm:text-2xl font-bold uppercase">subscribe to our
+                            newsletter</span>
+                        <h1 class="text-gray text-3xl text-center lg:w-3/4 sm:text-5xl font-bold">Prepare yourself &
+                            let’s
+                            explore the beauty
+                            of
+                            the world</h1>
+                    </div>
+                </div>
+                <div class="col-span-12">
+                    <div class="grid justify-items-center">
+                        <form class="flex flex-col sm:flex-row gap-4">
+                            <label for="search"
+                                class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your
+                                Email</label>
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-y-0 start-0 flex items-center ps-5 sm:ps-6 pointer-events-none">
+                                    <svg class="w-6 h-6 text-gray dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M2.038 5.61A2.01 2.01 0 0 0 2 6v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6c0-.12-.01-.238-.03-.352l-.866.65-7.89 6.032a2 2 0 0 1-2.429 0L2.884 6.288l-.846-.677Z" />
+                                        <path
+                                            d="M20.677 4.117A1.996 1.996 0 0 0 20 4H4c-.225 0-.44.037-.642.105l.758.607L12 10.742 19.9 4.7l.777-.583Z" />
+                                    </svg>
+
+                                </div>
+                                <input type="search" id="search"
+                                    class="block w-full sm:w-[380px] lg:w-[500px] p-4 sm:p-6 ps-14 sm:ps-16 text-sm text-gray border border-gray border-opacity-25 rounded-full focus:outline-none focus:ring-1 focus:ring-ungu focus:border-ungu"
+                                    placeholder="Your Email" required />
+                            </div>
+                            <button
+                                class="py-4 px-8 w-[340px] sm:w-[180px] bg-ungu drop-shadow-lg-shadow text-white rounded-full text-sm font-bold">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Send Email End -->
+
+    <!-- Footer Start -->
+    <section>
+        <div class="container mx-auto px-4 py-32">
+            <div class="grid grid-cols-12 gap-16">
+                <div class="col-span-12 order-1 lg:col-span-6">
+                    <div class="grid gap-8">
+                        <img src="../public/assets/logo.svg" alt="">
+                        <p class="text-gray font-inter text-base text-opacity-50">Contrary to popular belief, Lorem
+                            Ipsum is
+                            not simply random text. It has roots in a piece of
+                            classical Latin literature from 45 BC.</p>
+                        <div class="flex flex-row gap-4">
+                            <a href="">
+                                <div class="w-10 h-10 bg-ungu rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="w-10 h-10 bg-ungu rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M22 5.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.343 8.343 0 0 1-2.605.981A4.13 4.13 0 0 0 15.85 4a4.068 4.068 0 0 0-4.1 4.038c0 .31.035.618.105.919A11.705 11.705 0 0 1 3.4 4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 6.1 13.635a4.192 4.192 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 2 18.184 11.732 11.732 0 0 0 8.291 20 11.502 11.502 0 0 0 19.964 8.5c0-.177 0-.349-.012-.523A8.143 8.143 0 0 0 22 5.892Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="w-10 h-10 bg-ungu rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor" fill-rule="evenodd"
+                                            d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 order-2 flex flex-col gap-16 sm:flex sm:flex-row sm:gap-32 lg:col-span-6">
+                    <div class="">
+                        <h2 class="text-gray font-bold text-[23px] mb-6">Company</h2>
+                        <ul class="grid gap-4">
+                            <li><a href="#home" class="text-gray font-inter text-base mb-3">About</a></li>
+                            <li><a href="#home" class="text-gray font-inter text-base mb-3">Career</a></li>
+                            <li><a href="#home" class="text-gray font-inter text-base mb-3">Mobile</a></li>
+                        </ul>
+                    </div>
+                    <div class="">
+                        <h2 class="text-gray font-bold text-[23px] mb-6">Contact</h2>
+                        <ul class="grid gap-4">
+                            <li><a href="#home" class="text-gray font-inter text-base mb-3">Why Travlog?</a></li>
+                            <li><a href="#home" class="text-gray font-inter text-base mb-3">Partner with us</a></li>
+                            <li><a href="#home" class="text-gray font-inter text-base mb-3">FAQ’s</a></li>
+                            <li><a href="#home" class="text-gray font-inter text-base mb-3">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="">
+                        <h2 class="text-gray font-bold text-[23px] mb-6">Meet Us</h2>
+                        <ul class="grid gap-4">
+                            <li><a href="#home" class="text-gray font-inter text-base mb-3">+00 92 1234 56789</a></li>
+                            <li><a href="#home" class="text-gray font-inter text-base mb-3">info@travlog.com</a></li>
+                            <li><a href="#home" class="text-gray font-inter text-base mb-3">205. R Street, New York
+                                    BD23200</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Footer End -->
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</body>
+
+</html>
